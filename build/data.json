@@ -1,0 +1,20 @@
+[
+	{
+		"id": 1,
+		"fio": "Ivan Ivanov",
+		"UID-Braslet": "334FA",
+		"id-system": "4444",
+		"aceess-passage": 1,
+		"wardrobe": 1,
+		"message": ""
+	},
+	{
+		"id": 2,
+		"fio": "Ivan Ivanov",
+		"UID-Braslet": "3346A",
+		"id-system": "4444",
+		"aceess-passage": 1,
+		"wardrobe": 1,
+		"message": ""
+	}
+]

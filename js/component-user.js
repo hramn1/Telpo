@@ -28,8 +28,8 @@ class UserTemplate {
 				<input type="text" disabled name="" value="${this.message}">
 				<button type="submit" disabled name="button">Сохранить</button>
 			</form>
-			<button>Редактировать</button>
-			<button type="button" name="button">Удалить</button>
+			<button class="users__btn-edit">Редактировать</button>
+			<button class="users__btn-remove" type="button" name="button">Удалить</button>
 		</div>
 		`
 	}

@@ -8,6 +8,8 @@
 	xhr.send();
 	xhr.onload = function () {
 		dataUser = xhr.response;
-		drawUser(dataUser);
+		console.log(xhr.response)
+		// drawUser(dataUser);
+		let userController = new UserController(dataUser);
 	}
 })()

@@ -10,5 +10,9 @@
 			userTemplate.prepend(ff);
 		}
 	}
-	window.drawUser = drawUser
+	let clearContainer = () => {
+		userTemplate.innerHTML = ""
+	}
+	window.drawUser = drawUser;
+	window.clearContainer = clearContainer;
 })()

@@ -16,5 +16,14 @@
 		"aceess-passage": 1,
 		"wardrobe": 1,
 		"message": ""
+	},
+	{
+		"id": 3,
+		"fio": "Вася Петров",
+		"UID-Braslet": "3346A",
+		"id-system": "4444",
+		"aceess-passage": 1,
+		"wardrobe": 1,
+		"message": ""
 	}
 ]

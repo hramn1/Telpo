@@ -11,30 +11,67 @@ var UserController = /*#__PURE__*/function () {
     _classCallCheck(this, UserController);
 
     this.data = data;
-    this.init();
+    this.init(this.data);
+    this.addUser();
   }
 
   _createClass(UserController, [{
     key: "init",
-    value: function init() {
+    value: function init(data) {
+      var userTemplate = document.querySelector('.users__list');
+      userTemplate.innerHTML = "";
+
+      for (var i = 0; i < data.length; i++) {
+        var user = new UserTemplate(data[i], userTemplate, i);
+        this.removeUser(user, data);
+        user.removeElement(user);
+      }
+    }
+  }, {
+    key: "removeUser",
+    value: function removeUser(user, data) {
       var _this = this;
 
-      var editBtn = document.querySelectorAll('.users__btn-edit');
-      var removeBtn = document.querySelectorAll('.users__btn-remove');
+      var userTemplate = document.querySelector('.users__list');
+      var newData = data;
 
-      var _loop = function _loop(i) {
-        removeBtn[i].addEventListener("click", function () {
-          _this.data.splice(i, 1);
+      user.removeElement = function (el) {
+        el._element.querySelector('.users__btn-remove').onclick = function (evt) {
+          newData = newData.filter(function (item, i) {
+            return i != evt.target.parentNode.id;
+          });
+          user.unrender();
 
-          clearContainer(); // console.log(this.data)
-
-          drawUser(_this.data);
-        });
+          for (var i = 0; i <= newData.length; i++) {
+            _this.init(newData);
+          }
+        };
       };
+    }
+  }, {
+    key: "addUser",
+    value: function addUser() {
+      var btnAdd = document.querySelector('.users__btn-add');
+      var addContainer = document.querySelector('.users__add');
+      var countId = this.data[this.data.length - 1].id;
 
-      for (var i = 0; i < removeBtn.length; i++) {
-        _loop(i);
-      }
+      btnAdd.onclick = function () {
+        countId++;
+        var user = new UserTemplateAdd(countId, addContainer);
+      };
+    }
+  }, {
+    key: "editUser",
+    value: function editUser() {// 	const user = new UserTemplate(this.data[i]);
+      // 	user.getElement()
+      // 	user.removeDisabled();
+      // let editBtn = document.querySelectorAll('.users__btn-edit');
+      // for(let i = 0; i < editBtn.length; i++){
+      // 		editBtn[i].addEventListener("click", () => {
+      // 		clearContainer();
+      // 		drawUser(this.data);
+      // 		this.removeUser();
+      // 	})
     }
   }]);
 

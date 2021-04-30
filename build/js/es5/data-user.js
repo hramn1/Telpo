@@ -10,7 +10,6 @@
 
   xhr.onload = function () {
     dataUser = xhr.response;
-    drawUser(dataUser);
     var userController = new UserController(dataUser);
   };
 })();

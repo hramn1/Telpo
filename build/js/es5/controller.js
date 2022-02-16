@@ -37,13 +37,13 @@ var UserController = /*#__PURE__*/function () {
 
       user.removeElement = function (el) {
         el._element.querySelector('.users__btn-remove').onclick = function (evt) {
-          newData = newData.filter(function (item, i) {
+          _this.data = newData.filter(function (item, i) {
             return i != evt.target.parentNode.id;
           });
           user.unrender();
 
-          for (var i = 0; i <= newData.length; i++) {
-            _this.init(newData);
+          for (var i = 0; i <= _this.data.length; i++) {
+            _this.init(_this.data);
           }
         };
       };
@@ -51,6 +51,8 @@ var UserController = /*#__PURE__*/function () {
   }, {
     key: "addUser",
     value: function addUser() {
+      var _this2 = this;
+
       var btnAdd = document.querySelector('.users__btn-add');
       var addContainer = document.querySelector('.users__add');
       var countId = this.data[this.data.length - 1].id;
@@ -58,21 +60,12 @@ var UserController = /*#__PURE__*/function () {
       btnAdd.onclick = function () {
         countId++;
         var user = new UserTemplateAdd(countId, addContainer);
+        user.editUser(_this2.data);
       };
     }
   }, {
     key: "editUser",
-    value: function editUser() {// 	const user = new UserTemplate(this.data[i]);
-      // 	user.getElement()
-      // 	user.removeDisabled();
-      // let editBtn = document.querySelectorAll('.users__btn-edit');
-      // for(let i = 0; i < editBtn.length; i++){
-      // 		editBtn[i].addEventListener("click", () => {
-      // 		clearContainer();
-      // 		drawUser(this.data);
-      // 		this.removeUser();
-      // 	})
-    }
+    value: function editUser() {}
   }]);
 
   return UserController;
